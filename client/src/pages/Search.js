@@ -10,20 +10,6 @@ function Books() {
     const [books, setBooks] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
 
-    // useEffect(() => {
-    //     searchBooks()
-    // }, [])
-
-    // // Use for API call
-    // function searchGoogle() {
-    //     API.getBooks()
-    //         .then(res => {
-    //             console.log('res.data :>> ', res.data);
-
-    //         })
-    //         .catch(err => console.log(err));
-    // };
-
     function handleInputChange(event) {
         const { value } = event.target;
         setSearchTerm(value)
@@ -69,10 +55,10 @@ function Books() {
                     {books.length ? (
                         <List>
                             {books.map(book => (
-                                <ListItem key={book._id}>
-                                    <Link to={"/books/" + book._id}>
+                                <ListItem key={book.id}>
+                                    <Link to={book.volumeInfo.previewLink}>
                                         <strong>
-                                            {book.title} by {book.author}
+                                            {book.volumeInfo.title} by {book.volumeInfo.authors}
                                         </strong>
                                     </Link>
                                 </ListItem>
