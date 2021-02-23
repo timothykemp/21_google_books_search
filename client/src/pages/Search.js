@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Jumbotron from "../components/Jumbotron";
+import Nav from "../components/Nav";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
@@ -29,10 +30,12 @@ function Books() {
 
     return (
         <Container fluid>
+            <Nav></Nav>
             <Row>
-                <Col size="md-6">
+                <Col size="md">
                     <Jumbotron>
-                        <h1>What Books Should I Read?</h1>
+                        <h1>(React) Google Books Search</h1>
+                        <h4>Search for and save books of interest!</h4>
                     </Jumbotron>
                     <form>
                         <Input
@@ -48,10 +51,9 @@ function Books() {
               </FormBtn>
                     </form>
                 </Col>
-                <Col size="md-6 sm-12">
-                    <Jumbotron>
-                        <h1>Books On My List</h1>
-                    </Jumbotron>
+            </Row>
+            <Row>
+                <Col size="md">
                     {books.length ? (
                         <List>
                             {books.map(book => (
@@ -69,7 +71,7 @@ function Books() {
                         )}
                 </Col>
             </Row>
-        </Container>
+        </Container >
     );
 }
 
