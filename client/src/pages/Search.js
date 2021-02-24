@@ -67,7 +67,9 @@ function Books() {
                                 {books.map(book => (
                                     <ListItem key={book.id}>
                                         <h4>{book.volumeInfo.title}</h4>
-                                        <h5>Written by <span>{book.volumeInfo.authors}</span> </h5>
+                                        <h5>Written by {book.volumeInfo.authors && book.volumeInfo.authors.map((a, idx) => (
+                                            <span key={idx}>{a} </span>
+                                        ))}</h5>
                                         <a href={book.volumeInfo.previewLink} target="_blank" rel="noopener noreferrer">View</a>
                                         <p>{book.volumeInfo.description}</p>
                                     </ListItem>
