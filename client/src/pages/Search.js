@@ -29,49 +29,61 @@ function Books() {
     };
 
     return (
-        <Container fluid>
+        <div>
             <Nav></Nav>
-            <Row>
-                <Col size="md">
-                    <Jumbotron>
-                        <h1>(React) Google Books Search</h1>
-                        <h4>Search for and save books of interest!</h4>
-                    </Jumbotron>
-                    <form>
-                        <Input
-                            onChange={handleInputChange}
-                            name="search"
-                            placeholder="Search"
-                        />
-                        <FormBtn
-                            disabled={!searchTerm.length}
-                            onClick={handleFormSubmit}
-                        >
-                            Search
-              </FormBtn>
-                    </form>
-                </Col>
-            </Row>
-            <Row>
-                <Col size="md">
-                    {books.length ? (
-                        <List>
-                            {books.map(book => (
-                                <ListItem key={book.id}>
-                                    <Link to={book.volumeInfo.previewLink}>
-                                        <strong>
-                                            {book.volumeInfo.title} by {book.volumeInfo.authors}
-                                        </strong>
-                                    </Link>
-                                </ListItem>
-                            ))}
-                        </List>
-                    ) : (
-                            <h3>No Results to Display</h3>
-                        )}
-                </Col>
-            </Row>
-        </Container >
+            <Container fluid>
+                <Row>
+                    <Col size="md">
+                        <Jumbotron>
+                            <h1>(React) Google Books Search</h1>
+                            <h4>Search for and save books of interest!</h4>
+                        </Jumbotron>
+                    </Col>
+                </Row>
+            </Container>
+            <Container>
+                <Row>
+                    <Col size="md">
+                        <h3>Book Search</h3>
+                        <form>
+                            <Input
+                                onChange={handleInputChange}
+                                name="search"
+                                placeholder="Enter A Book Title"
+                            />
+                            <FormBtn
+                                disabled={!searchTerm.length}
+                                onClick={handleFormSubmit}
+                            >
+                                Search
+                            </FormBtn>
+                        </form>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col size="md">
+                        {books.length ? (
+                            <List>
+                                {books.map(book => (
+                                    <ListItem key={book.id}>
+                                        <h4>{book.volumeInfo.title}</h4>
+                                        <h5>Written by {book.volumeInfo.authors && book.volumeInfo.authors.map(
+                                            (a, idx) => (
+                                                <p key={idx}>{a}</p>
+                                            ))}
+                                        </h5>
+                                        <a href={book.volumeInfo.previewLink} target="_blank" rel="noopener noreferrer">View</a>
+                                        <p>{book.volumeInfo.description}</p>
+                                    </ListItem>
+                                ))}
+                            </List>
+                        ) : (
+                                <h3>No Results to Display</h3>
+                            )}
+                    </Col>
+                </Row>
+            </Container >
+        </div>
     );
 }
 
