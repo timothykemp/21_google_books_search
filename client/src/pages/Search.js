@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
@@ -29,16 +27,6 @@ function Books() {
 
     return (
         <div>
-            <Container fluid>
-                <Row>
-                    <Col size="md">
-                        <Jumbotron>
-                            <h1>(React) Google Books Search</h1>
-                            <h4>Search for and save books of interest!</h4>
-                        </Jumbotron>
-                    </Col>
-                </Row>
-            </Container>
             <Container>
                 <Row>
                     <Col size="md">
