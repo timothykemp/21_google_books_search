@@ -67,11 +67,7 @@ function Books() {
                                 {books.map(book => (
                                     <ListItem key={book.id}>
                                         <h4>{book.volumeInfo.title}</h4>
-                                        <h5>Written by {book.volumeInfo.authors && book.volumeInfo.authors.map(
-                                            (a, idx) => (
-                                                <p key={idx}>{a}</p>
-                                            ))}
-                                        </h5>
+                                        <h5>Written by <span>{book.volumeInfo.authors}</span> </h5>
                                         <a href={book.volumeInfo.previewLink} target="_blank" rel="noopener noreferrer">View</a>
                                         <p>{book.volumeInfo.description}</p>
                                     </ListItem>
@@ -82,7 +78,7 @@ function Books() {
                             )}
                     </Col>
                 </Row>
-            </Container >
+            </Container>
         </div>
     );
 }
