@@ -46,18 +46,33 @@ function Books() {
                         </form>
                     </Col>
                 </Row>
+            </Container>
+            <Container>
                 <Row>
                     <Col size="md">
                         {books.length ? (
                             <List>
                                 {books.map(book => (
                                     <ListItem key={book.id}>
-                                        <h4>{book.volumeInfo.title}</h4>
-                                        <h5>Written by {book.volumeInfo.authors && book.volumeInfo.authors.map((a, idx) => (
-                                            <span key={idx}>{a} </span>
-                                        ))}</h5>
-                                        <a href={book.volumeInfo.previewLink} target="_blank" rel="noopener noreferrer">View</a>
-                                        <p>{book.volumeInfo.description}</p>
+                                        <Row>
+                                            <Col size="md">
+                                                <h4>{book.volumeInfo.title}</h4>
+                                                <h5>Written by {book.volumeInfo.authors && book.volumeInfo.authors.map((a, idx) => (
+                                                    <span key={idx}>{a} </span>
+                                                ))}</h5>
+                                            </Col>
+                                            <Col size="md">
+                                                <a href={book.volumeInfo.previewLink} target="_blank" rel="noopener noreferrer">View</a>
+                                            </Col>
+                                        </Row>
+                                        <br />
+                                        <Row>
+                                            <Col size="md">
+                                                <p>{book.volumeInfo.description}</p>
+                                            </Col>
+                                        </Row>
+
+
                                     </ListItem>
                                 ))}
                             </List>

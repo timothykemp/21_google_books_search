@@ -11,20 +11,18 @@ function App() {
     <BrowserRouter>
       <div>
         <Nav />
-        <Container>
-          <Jumbotron />
-          <Switch>
+        <Jumbotron />
+        <Switch>
 
-            <Route exact path="/">
-              <Search />
-            </Route>
+          <Route exact path="/">
+            <Search />
+          </Route>
 
-            {/* <Route exact path="/saved">
+          {/* <Route exact path="/saved">
             <Saved />
           </Route> */}
 
-          </Switch>
-        </Container>
+        </Switch>
       </div>
     </BrowserRouter>
   );
