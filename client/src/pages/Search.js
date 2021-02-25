@@ -3,6 +3,7 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
+import ViewBtn from "../components/ViewBtn"
 
 function Books() {
     const [books, setBooks] = useState([])
@@ -62,6 +63,10 @@ function Books() {
                                                 ))}</h5>
                                             </Col>
                                             <Col size="md">
+                                                <div class="btn-group" role="group" aria-label="Basic example" style={{ float: "right" }}>
+                                                    <ViewBtn />
+                                                    <ViewBtn />
+                                                </div>
                                                 <a href={book.volumeInfo.previewLink} target="_blank" rel="noopener noreferrer">View</a>
                                             </Col>
                                         </Row>
