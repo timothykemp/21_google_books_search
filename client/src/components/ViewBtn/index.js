@@ -1,13 +1,12 @@
 import React from "react";
-import "./style.css";
 
 // The ...props means, spread all of the passed props onto this element
 // That way we don't have to define them all individually
 function ViewBtn(props) {
   return (
-    <button className="view-btn" {...props} type="button">
+    <a className="btn btn-info" href={props.href} target="_blank" role="button" style={{ float: "right", margin: 5, borderRadius: 4, color: "white" }}>
       View
-    </button>
+    </a>
   );
 }
 
